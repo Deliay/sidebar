@@ -1,0 +1,25 @@
+/* 实现两个三角形，一个为背景色，一个为需要的颜色，重叠距离保留一点即可 */
+
+.drop-button::after, .drop-button::before 
+{
+    content: ' ';
+    border: 4px solid transparent;
+    border-left: 4px solid var(--back-color);
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 999;
+    transform: rotateZ(90deg);
+    margin-left: 14px;
+}
+
+.drop-button
+{
+    flex-grow: 2;
+}
+
+.drop-button::before 
+{
+    border-left-color: var(--fore-color-lighten);
+    margin-top: 2px;
+}

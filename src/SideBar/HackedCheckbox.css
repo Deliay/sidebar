@@ -1,0 +1,44 @@
+/* 利用:checked和HTML tag 'for' 实现checkbox的hack */
+.check 
+{
+    position: relative;
+    margin-right: 16px;
+}
+
+.check > input[type=checkbox]
+{
+    visibility: hidden;
+}
+
+.checkbox-hack
+{ 
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 4px;
+    left: 4px;
+    background: transparent;
+    border:1px solid rgba(201, 201, 201, 0.7);
+    border-radius:3px;
+}
+
+input[type=checkbox]:checked + .checkbox-hack::after
+{
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 5px;
+    background: transparent;
+    top: 1px;
+    left: 1px;
+    border: 2px solid rgb(201, 201, 201);
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+}
+
+input[type=checkbox]:checked + .checkbox-hack::after 
+{  
+    opacity: 1;  
+}  
