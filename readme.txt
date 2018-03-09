@@ -1,6 +1,6 @@
 如何验收成果：
 npm install
-npm run
+npm run start
 
 如果需要测试网络数据，在App.js Ln 8中去掉enableTest="true"即可
 请求地址在SideBar.jsx Ln 27中。
