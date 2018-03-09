@@ -13,6 +13,7 @@ export class SideBar extends Component {
         };
         this.onHeaderClick = this.onHeaderClick.bind(this);
         this.onItemClick = this.onItemClick.bind(this);
+        this.onCleanClick = this.onCleanClick.bind(this);
     }
 
     componentDidMount() {
@@ -49,6 +50,16 @@ export class SideBar extends Component {
         this.setState(currentState);
     }
 
+    onCleanClick() {
+        let currentState = this.state;
+        for (let index = 0; index < currentState.data.length; index++) {
+            for (let subIndex = 0; subIndex < currentState.data[index].jobs.length; subIndex++) {
+                currentState.data[index].jobs[subIndex].checked = false;
+            }
+        }
+        this.setState(currentState);
+    }
+
     render() {
         //从数据中生成父级list，并将数据移交父级list处理
         const deptsList = this.state.data.map((p, i) => 
@@ -63,7 +74,7 @@ export class SideBar extends Component {
             <div className="sider-bar">
                 <div className="header">
                     <h2 className="title">职位招聘</h2>
-                    <a className="clean" onClick="">清空</a>
+                    <a className="clean" onClick={this.onCleanClick}>清空</a>
                 </div>
                 <div className="list">
                     {deptsList}
