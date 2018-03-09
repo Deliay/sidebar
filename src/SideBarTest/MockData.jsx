@@ -1,5 +1,3 @@
-import Mock from "mock";
-
 export default class MockData {
     constructor() {
         this.send = this.send.bind(this);
